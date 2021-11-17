@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'chmod -x ./mvnw'
+                sh 'chmod 777 mvnw'
                 sh './mvnw clean install'
             }
         }
