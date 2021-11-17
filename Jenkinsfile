@@ -9,12 +9,12 @@ pipeline {
         }
         stage('Test') {
             steps {
-                mvnw test
+                sh ./mvnw test
             }
         }
         stage('Deploy') {
             steps {
-
+                echo 'hello~~~~~'
             }
         }
     }
