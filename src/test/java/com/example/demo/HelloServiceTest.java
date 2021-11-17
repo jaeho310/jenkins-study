@@ -11,6 +11,7 @@ class HelloServiceTest {
     void test() {
         HelloService helloService = new HelloService();
         assertThat(helloService).isNotNull();
+        System.out.println("test");
     }
 
 }
