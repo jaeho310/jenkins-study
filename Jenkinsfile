@@ -4,12 +4,12 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                ./mvnw clean install
+                mvnw clean install
             }
         }
         stage('Test') {
             steps {
-                ./mvnw test
+                mvnw test
             }
         }
         stage('Deploy') {
