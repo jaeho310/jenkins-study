@@ -5,9 +5,11 @@ node {
     }
     try {
         stage('Clone Repository') {
+            echo 'clone'
             checkout scm
         }
-        stage('Base Build Image Check') {
+        stage('Build Image Check') {
+            echo 'build image check'
             def dockerfile = 'docker/dockerfile.buildbase'
             if (true) {
                 def dockerImage = docker.build("cache-service:${env.BRANCH_NAME}.${env.BUILD_ID}", "-f ${dockerfile} .")
