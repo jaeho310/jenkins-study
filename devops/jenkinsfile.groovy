@@ -8,7 +8,10 @@ node {
             checkout scm
         }
         stage('Base Build Image Check') {
-            def dockerfile = 'docker/'
+            def dockerfile = 'docker/dockerfile.buildbase'
+            if (true) {
+                def dockerImage = docker.build("cache-service:${env.BRANCH_NAME}.${env.BUILD_ID}", "-f ${dockerfile} .")
+            }
         }
     }
 }
