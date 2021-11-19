@@ -1,0 +1,13 @@
+ARG execute_base_image=alpine:3.10
+
+FROM {execute_base_image}
+
+ENV execute_file_name=app
+
+COPY --from=build /${service_name}/backend/src/${execute_file_name} /${service_name}/${execute_file_name}
+
+WORKDIR /${service_name}
+
+ENTRYPOINT [ "sh", "-c", "./$execute_file_name" ].
+
+# ENTRYPOINT [ "entrypoint" ]

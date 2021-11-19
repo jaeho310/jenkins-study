@@ -1,0 +1,8 @@
+ARG build_base_image=golang:1.14-alpine3.13
+
+FROM ${build_base_image}
+
+COPY ./backend/go.mod /go.mod
+COPY ./backend/go.sum /go.sum
+
+RUN go get
