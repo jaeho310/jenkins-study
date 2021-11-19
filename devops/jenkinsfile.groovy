@@ -15,8 +15,9 @@ node {
                 def dockerImage = docker.build("cache-service:${env.BRANCH_NAME}.${env.BUILD_ID}", "-f ${dockerfile} .")
             }
         }
-    } catch {
+    } catch (e) {
         echo 'fail'
+        throw e
     } finally {
         echo 'success'
     }
