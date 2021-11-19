@@ -10,7 +10,7 @@ node {
         }
         stage('Build Image Check') {
             echo 'build image check'
-            def dockerfile = 'docker/dockerfile.buildbase'
+            def dockerfile = 'devops/docker/dockerfile.buildbase'
             if (true) {
                 def dockerImage = docker.build("cache-service:${env.BRANCH_NAME}.${env.BUILD_ID}", "-f ${dockerfile} .")
             }
