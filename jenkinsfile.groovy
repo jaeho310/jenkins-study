@@ -10,7 +10,6 @@ node {
             def proc = "git branch".execute()
             def b = new StringBuffer()
             proc.consumeProcessErrorStream(b)
-
             println proc.text
             println b.toString()
         }

@@ -4,7 +4,7 @@ class Example {
        def b = new StringBuffer()
        proc.consumeProcessErrorStream(b)
 
-       println proc.text
+    //    println proc.text
        println b.toString()
    }
 }
