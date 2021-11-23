@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"net/http"
 
 	"github.com/labstack/echo/v4"
@@ -8,6 +9,7 @@ import (
 
 func main() {
 	e := echo.New()
+	fmt.Println("test")
 	e.GET("/", getHelloWorld)
 	e.Logger.Fatal(e.Start(":1323"))
 }
