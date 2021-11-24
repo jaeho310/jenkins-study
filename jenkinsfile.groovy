@@ -42,9 +42,10 @@ node {
             // }
         }
         stage('Test') {
+            def job_folder = ${env.WORKSPACE}
             // def job_folder = "${env.WORKSPACE}".split('workspace/')[1]
             def dockerfile = 'dockerfile.test'
-            def dockerImage = docker.build("jaeho-study-test:${env.BRANCH_NAME}", "-f ${dockerfile} .").inside("-v ${env.WORKSPACE}/test-results:/app/test-results")
+            def dockerImage = docker.build("jaeho-study-test:${env.BRANCH_NAME}", "-f ${dockerfile} .").inside("-v job_folder/test-results:/app/test-results")
         }
         stage('Sonarqube') {
             print('sonarqube!!!')
