@@ -47,7 +47,7 @@ node {
             def dockerImage = docker.build("jaeho-study-test:${env.BRANCH_NAME}", "-f ${dockerfile} .").inside("-v ${env.WORKSPACE}/test-results:/app/test-results")
         }
         stage('Sonarqube') {
-            print('sonarqube!!')
+            print('sonarqube!!!')
         }
 
     } catch (e) {
