@@ -43,7 +43,7 @@ node {
         }
         stage('Test') {
             print('1111111111111111111111111111111111111111111111111')
-            def job_folder = ${env.WORKSPACE}
+            def job_folder = "${env.WORKSPACE}"
             print('22222222222222222222222222222222222222222222222')
             // def job_folder = "${env.WORKSPACE}".split('workspace/')[1]
             def dockerfile = 'dockerfile.test'
