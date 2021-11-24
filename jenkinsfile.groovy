@@ -59,8 +59,8 @@ node {
         echo 'fail'
         throw e
     } finally {
-        out.close()
-        err.close()
+        // out.close()
+        // err.close()
     }
 }
 
