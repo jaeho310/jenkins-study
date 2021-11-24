@@ -5,7 +5,7 @@ node {
     }
     try {
         stage('Clone Repository') {
-            echo ${env.WORKSPACE}
+            // echo ${env.WORKSPACE}
             print('clone')
             checkout scm
         }
