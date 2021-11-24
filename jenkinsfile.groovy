@@ -42,7 +42,9 @@ node {
             // }
         }
         stage('Test') {
+            print('1111111111111111111111111111111111111111111111111')
             def job_folder = ${env.WORKSPACE}
+            print('22222222222222222222222222222222222222222222222')
             // def job_folder = "${env.WORKSPACE}".split('workspace/')[1]
             def dockerfile = 'dockerfile.test'
             def dockerImage = docker.build("jaeho-study-test:${env.BRANCH_NAME}", "-f ${dockerfile} .").inside("-v job_folder/test-results:/app/test-results")
