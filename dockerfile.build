@@ -1,13 +1,14 @@
-ARG build_base_image=golang:1.14-alpine3.13
-ARG execute_base_image=alpine:3.10
-ARG service_name=test
+# ARG build_base_image=golang:1.14-alpine3.13
+# ARG execute_base_image=alpine:3.10
 
-# FROM 디펜던시를 다 가져와서 만든 환경
+# FROM ${build_base_image}
+
 
 # ENV execute_file_name=app
 
-COPY ./backend/src /${service_name}/backend/src
+FROM golang:1.17-alpine3.13
 
-WORKDIR /${service_name}/backend/src
+COPY ./ /app
+WORKDIR /app
 
-RUN go build -o ${execute_file_name}
+RUN go build -o app

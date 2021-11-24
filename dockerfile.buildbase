@@ -1,13 +1,7 @@
-# ARG build_base_image=golang:1.14-alpine3.13
-
-# FROM ${build_base_image}
-
 FROM golang:1.14-alpine3.13
 
-# docker build -t jaeho:1 -f devops/docker/dockerfile.buildbase .
+COPY ./ /app
 
-COPY ./ /base
-
-WORKDIR /base
+WORKDIR /app
 
 RUN go get

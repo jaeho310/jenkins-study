@@ -1,8 +1,8 @@
-{"Time":"2021-11-23T10:59:04.1206497+09:00","Action":"run","Package":"ci","Test":"Test_main"}
-{"Time":"2021-11-23T10:59:04.1816518+09:00","Action":"output","Package":"ci","Test":"Test_main","Output":"=== RUN   Test_main\n"}
-{"Time":"2021-11-23T10:59:04.1816518+09:00","Action":"output","Package":"ci","Test":"Test_main","Output":"--- PASS: Test_main (0.00s)\n"}
-{"Time":"2021-11-23T10:59:04.1816518+09:00","Action":"pass","Package":"ci","Test":"Test_main","Elapsed":0}
-{"Time":"2021-11-23T10:59:04.1816518+09:00","Action":"output","Package":"ci","Output":"PASS\n"}
-{"Time":"2021-11-23T10:59:04.1816518+09:00","Action":"output","Package":"ci","Output":"coverage: 25.0% of statements\n"}
-{"Time":"2021-11-23T10:59:04.1821579+09:00","Action":"output","Package":"ci","Output":"ok  \tci\t0.090s\tcoverage: 25.0% of statements\n"}
-{"Time":"2021-11-23T10:59:04.1821579+09:00","Action":"pass","Package":"ci","Elapsed":0.091}
+{"Time":"2021-11-24T10:38:51.3498815+09:00","Action":"run","Package":"jenkins-test","Test":"Test_main"}
+{"Time":"2021-11-24T10:38:51.4056666+09:00","Action":"output","Package":"jenkins-test","Test":"Test_main","Output":"=== RUN   Test_main\n"}
+{"Time":"2021-11-24T10:38:51.4056666+09:00","Action":"output","Package":"jenkins-test","Test":"Test_main","Output":"--- PASS: Test_main (0.00s)\n"}
+{"Time":"2021-11-24T10:38:51.4056666+09:00","Action":"pass","Package":"jenkins-test","Test":"Test_main","Elapsed":0}
+{"Time":"2021-11-24T10:38:51.4062129+09:00","Action":"output","Package":"jenkins-test","Output":"PASS\n"}
+{"Time":"2021-11-24T10:38:51.4062129+09:00","Action":"output","Package":"jenkins-test","Output":"coverage: 14.3% of statements\n"}
+{"Time":"2021-11-24T10:38:51.4062129+09:00","Action":"output","Package":"jenkins-test","Output":"ok  \tjenkins-test\t0.088s\tcoverage: 14.3% of statements\n"}
+{"Time":"2021-11-24T10:38:51.4062129+09:00","Action":"pass","Package":"jenkins-test","Elapsed":0.088}

@@ -1,0 +1,9 @@
+FROM golang:1.14-alpine3.13
+
+RUN apk add build-base
+
+COPY ./ /app
+
+WORKDIR /app/test-results
+
+RUN go test -v ../... -coverprofile=coverage.out -json > report.json
