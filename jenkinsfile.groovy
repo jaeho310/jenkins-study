@@ -44,11 +44,12 @@ node {
         stage('Test') {
             print('1111111111111111111111111111111111111111111111111')
             // /var/jenkins_home/workspace/jaeho-multlibranch-pipeline_RC
-            def job_folder = "${env.WORKSPACE}" + "/jenkins-sutdy"
+            def job_folder = "${env.WORKSPACE}/jenkins-sutdy"
             print('22222222222222222222222222222222222222222222222')
             // def job_folder = "${env.WORKSPACE}".split('workspace/')[1]
             def dockerfile = 'dockerfile.test'
             def dockerImage = docker.build("jaeho-study-test:${env.BRANCH_NAME}", "-f ${dockerfile} .").inside("-v ${job_folder}/test-results:/app/test-results")
+            print('333333333333333333333333333333333333333333333333333')
         }
         stage('Sonarqube') {
             print('sonarqube!!!')
