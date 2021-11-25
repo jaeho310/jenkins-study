@@ -44,7 +44,9 @@ node {
         }
         stage('Test') {
             // /var/jenkins_home/workspace/jaeho-multlibranch-pipeline_RC
+            print('111111111111111111111111111111111111111111111111111')
             def job_folder = "${env.WORKSPACE}/jenkins-sutdy"
+            print('2222222222222222222222222222222222222222222222222222')
             def dockerfile = 'dockerfile.test'
             def dockerimage = docker.image("jaeho-study-build:${env.BRANCH_NAME}", "-f ${dockerfile} .").inside {
                 sh './entrypoint-test.sh'
