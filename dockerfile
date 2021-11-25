@@ -1,9 +1,8 @@
-FROM ubuntu
+FROM golang
 
 RUN apt update -y \
     && apt install -y curl \
-    && apt install -y unzip \
-    && apt install -y golang
+    && apt install -y unzip
 
 COPY ./ /app
 
@@ -14,8 +13,8 @@ RUN curl -s -L https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/s
   && rm -rf sonarscanner.zip \
   && mv sonar-scanner-4.6.2.2472-linux sonar-scanner
 
-# RUN go test -v ./... -coverprofile=coverage.out -json > report.json
+RUN go test -v ./... -coverprofile=coverage.out -json > report.json
 
-WORKDIR /app
+# WORKDIR /app
 
 # CMD ["test-report.sh"]

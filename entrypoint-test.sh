@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 
 export PATH=$PATH:/app/sonar-scanner/bin/
 

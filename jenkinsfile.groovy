@@ -35,7 +35,7 @@ node {
         //     }
         // }
         stage('Build') {
-            def dockerfile = 'dockerfile.test'
+            def dockerfile = 'dockerfile'
             def dockerImage = docker.build("jaeho-study:${env.BRANCH_NAME}", "-f ${dockerfile} .")
             // docker.build("jaeho-study-build")
             // docker.image("jaeho-study-base:${env.BRANCH_NAME}").inside("-v ${test_results_path}:/app/test-results") {
@@ -47,8 +47,8 @@ node {
             print('111111111111111111111111111111111111111111111111111')
             // def job_folder = "${env.WORKSPACE}/jenkins-sutdy"
             print('2222222222222222222222222222222222222222222222222222')
-            def dockerfile = 'dockerfile.test'
-            docker.image("jaeho-study:${env.BRANCH_NAME}", "-f ${dockerfile} .").inside() {
+            // def dockerfile = 'dockerfile.test'
+            docker.image("jaeho-study:${env.BRANCH_NAME}") {
                 sh './entrypoint-test.sh'
             }
             print('333333333333333333333333333333333333333333333333333')
@@ -60,9 +60,24 @@ node {
     } catch (e) {
         echo 'fail'
         throw e
+
     } finally {
-        // out.close()
-        // err.close()
+        def currentResult = currentBuild.result ?: 'SUCCESS'
+        if (currentResult == 'UNSTABLE') {
+            echo 'This will run only if the run was marked as unstable'
+        }
+
+        def previousResult = currentBuild.getPreviousBuild()?.result
+        if (previousResult != null && previousResult != currentResult) {
+            echo 'This will run only if the state of the Pipeline has changed'
+            echo 'For example, if the Pipeline was previously failing but is now successful'
+        }
+
+        echo 'This will always run'
+        stage('Clean workspace & delete Image') {
+            cleanWs deleteDirs: true, notFailBuild: true
+            sh "docker rmi jaeho-study:${env.BRANCH_NAME}"
+        }
 
     }
 }
