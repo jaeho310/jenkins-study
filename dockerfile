@@ -15,6 +15,4 @@ RUN curl -s -L https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/s
 
 RUN go test -v ./... -coverprofile=coverage.out -json > report.json
 
-# WORKDIR /app
-
-# CMD ["test-report.sh"]
+RUN chmod 777 entrypoint-test.sh
