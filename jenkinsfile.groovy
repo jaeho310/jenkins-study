@@ -48,7 +48,7 @@ node {
             // def job_folder = "${env.WORKSPACE}/jenkins-sutdy"
             print('2222222222222222222222222222222222222222222222222222')
             // def dockerfile = 'dockerfile.test'
-            docker.image("jaeho-study:${env.BRANCH_NAME}") {
+            docker.image("jaeho-study:${env.BRANCH_NAME}").inside {
                 sh './entrypoint-test.sh'
             }
             print('333333333333333333333333333333333333333333333333333')
