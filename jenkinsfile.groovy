@@ -46,11 +46,13 @@ node {
             // /var/jenkins_home/workspace/jaeho-multlibranch-pipeline_RC
             def job_folder = "${env.WORKSPACE}/jenkins-sutdy"
             def dockerfile = 'dockerfile.test'
-            def dockerimage = docker.image("jaeho-study-test:${env.BRANCH_NAME}", "-f ${dockerfile} .").inside("-v ${job_folder}/test-results:/app/test-results"){}
+            def dockerimage = docker.image("jaeho-study-build:${env.BRANCH_NAME}", "-f ${dockerfile} .").inside {
+                sh './entrypoint-test.sh'
+            }
             print('333333333333333333333333333333333333333333333333333')
         }
         stage('Sonarqube') {
-            sh ''
+            print("sonarqube!!")
         }
 
     } catch (e) {
@@ -59,6 +61,7 @@ node {
     } finally {
         // out.close()
         // err.close()
+
     }
 }
 

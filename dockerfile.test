@@ -17,4 +17,4 @@ RUN curl -s -L https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/s
 
 WORKDIR /app
 
-CMD ["test-report.sh"]
+# CMD ["test-report.sh"]
