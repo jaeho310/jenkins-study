@@ -35,8 +35,10 @@ node {
         //     }
         // }
         stage('Build') {
+            print('00000000000000000000000000000000000000000000000000000000000000000000000')
             def dockerfile = 'dockerfile'
             def dockerImage = docker.build("jaeho-study:${env.BRANCH_NAME}", "-f ${dockerfile} .")
+            print('555555555555555555555555555555555555555555555555555555555555555555555')
             // docker.build("jaeho-study-build")
             // docker.image("jaeho-study-base:${env.BRANCH_NAME}").inside("-v ${test_results_path}:/app/test-results") {
             //     sh '''/app/run-test.sh ${BRANCH_NAME}'''
