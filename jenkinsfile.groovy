@@ -49,7 +49,7 @@ node {
             print('2222222222222222222222222222222222222222222222222222')
             // def dockerfile = 'dockerfile.test'
             docker.image("jaeho-study:${env.BRANCH_NAME}").inside {
-                sh './entrypoint-test.sh'
+                sh '/app/entrypoint-test.sh'
             }
             print('333333333333333333333333333333333333333333333333333')
         }
