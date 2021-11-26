@@ -34,11 +34,9 @@ node {
         //         print("there are no dependencies change")
         //     }
         // }
-        stage('Build') {
-            print('00000000000000000000000000000000000000000000000000000000000000000000000')
+        stage('Build & Test') {
             def dockerfile = 'dockerfile'
-            def dockerImage = docker.build("jaeho-study:${env.BRANCH_NAME}", "-f ${dockerfile} .")
-            print('555555555555555555555555555555555555555555555555555555555555555555555')
+            def dockerImage = docker.build("cache-server:${env.BRANCH_NAME}", "-f ${dockerfile} .")
             // docker.build("jaeho-study-build")
             // docker.image("jaeho-study-base:${env.BRANCH_NAME}").inside("-v ${test_results_path}:/app/test-results") {
             //     sh '''/app/run-test.sh ${BRANCH_NAME}'''
@@ -46,17 +44,14 @@ node {
         }
         stage('Test') {
             // /var/jenkins_home/workspace/jaeho-multlibranch-pipeline_RC
-            print('111111111111111111111111111111111111111111111111111')
             // def job_folder = "${env.WORKSPACE}/jenkins-sutdy"
-            print('2222222222222222222222222222222222222222222222222222')
             // def dockerfile = 'dockerfile.test'
             docker.image("jaeho-study:${env.BRANCH_NAME}").inside {
                 sh '/app/entrypoint-test.sh'
             }
-            print('333333333333333333333333333333333333333333333333333')
         }
-        stage('Sonarqube') {
-            print("sonarqube!!")
+        stage('Delivery') {
+            print("delivery!!")
         }
 
     } catch (e) {
@@ -91,6 +86,4 @@ void print(message) {
 def buildBaseImage() {
     def dockerfile = 'dockerfile.buildbase'
     def dockerImage = docker.build("jaeho-study-base:${env.BRANCH_NAME}", "-f ${dockerfile} .")
-    print(dockerImage.getClass()) // 지금 얘가 뭐가나오는지 알수 없다.
-    // docker.image("$IMAGE").push() // 일단 명령어는 이거
 }
