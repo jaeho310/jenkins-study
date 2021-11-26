@@ -46,7 +46,7 @@ node {
             // /var/jenkins_home/workspace/jaeho-multlibranch-pipeline_RC
             // def job_folder = "${env.WORKSPACE}/jenkins-sutdy"
             // def dockerfile = 'dockerfile.test'
-            docker.image("jaeho-study:${env.BRANCH_NAME}").inside {
+            docker.image("cache-server:${env.BRANCH_NAME}").inside {
                 sh '/app/entrypoint-test.sh'
             }
         }
